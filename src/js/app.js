@@ -42,7 +42,7 @@ function render(variables = {}) {
               ${variables.city != null ? variables.city + "," : "Miami,"}
               ${variables.country != null ? variables.country : "USA"}
           </h3>
-          <ul class="position-right">
+          <ul class="${variables.socialMediaPosition}">
             
             <li>
                 <a href="https://twitter.com/${
@@ -96,7 +96,7 @@ function render(variables = {}) {
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
-window.onload = function () {
+window.onload = function() {
   window.variables = {
     // if includeCover is true the algorithm should show the cover image
     includeCover: true,
@@ -115,12 +115,12 @@ window.onload = function () {
     lastName: null,
     role: null,
     country: null,
-    city: null,
+    city: null
   };
   render(window.variables); // render the card for the first time
 
-  document.querySelectorAll(".picker").forEach(function (elm) {
-    elm.addEventListener("change", function (e) {
+  document.querySelectorAll(".picker").forEach(function(elm) {
+    elm.addEventListener("change", function(e) {
       // <- add a listener to every input
       const attribute = e.target.getAttribute("for"); // when any input changes, collect the value
       let values = {};
